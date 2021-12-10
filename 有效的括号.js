@@ -20,4 +20,22 @@ var isValid = function(s) {
     return !Boolean(stack.length)
 };
 
-isValid('(]')
+// isValid('(]')
+
+
+function isMatch(strs) {
+  let values = {
+    '{':'}',
+    '(':')',
+    '[':']',
+  }
+  let stack = []
+  for (const str of strs) {
+    if(str == '(' || str == '{' || str == '[') {
+      stack.push(str)
+    }else if(values[stack.pop()] !== str) return false
+  }
+  return !Boolean(stack.length)
+}
+
+console.log(isMatch('{{()}}'));

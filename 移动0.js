@@ -35,3 +35,29 @@ var moveZeroes = function(nums) {
 }
 
 moveZeroes([0,1,0,3,12])
+
+function moveZeroes1(nums) {
+  let l = r = 0;
+  for (; r < nums.length; r++) {
+    if(nums[l] !== 0) {
+      l++;
+    }else { // 左指针为0 右指针不为0 交换  左指针+1
+      if(nums[r] !== 0) {
+        [nums[l], nums[r]] = [nums[r], nums[l]]
+        l++
+      }
+      
+    }
+
+  }
+  console.log(nums, 9999);
+}
+
+moveZeroes1([0,1,0,3,12])
+moveZeroes1([1, 1, 0, 3, 12])
+
+// l一直是第一个0的位置的index，r循环，r!==0
+// 0 0 1 0 3 12
+// 1 1 0 3 12
+
+// l 2   
